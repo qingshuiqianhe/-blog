@@ -18,22 +18,22 @@ pip install pyhton_whois
 '''
 import urllib2
 def download(url):
-    print 'downloading' ,url
+    print ('downloading' ,url)
     try:
         html = urllib2.urlopen(url).read()
     except urllib2.URLError as e:
-        print 'download error ',e.reason
+        print ('download error ',e.reason)
         html = None
     return html
     # 能捕获异常并返回none
 
 #发生错误记录次数，当错误在500---6000之间时计数，并且尝试三次
 def download(url,num_retries=2):
-    print 'download ', url
+    print ('download ', url)
     try:
         html = urlllib2.urlopen(url).read()
     except urlllib2.URLError as e:
-        print 'download error',e.reason
+        print ('download error',e.reason)
         html = None
         if num_retries >0:
             if hasattr(e,'code') and 500<= e.code <600:
@@ -123,3 +123,7 @@ def link_crawler(seed_url,link_regex):
 
 
 22'''
+# 正则表达式
+import re
+url = 'http://example.webscraping.com.view/United-Kingdom-239'
+html = download(url)
